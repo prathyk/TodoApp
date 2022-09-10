@@ -1,9 +1,16 @@
 package com.todo.TodoApp.data;
 
-public class MyDatabase {
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
+public class MyDatabase implements MyDb{
+
+    public MyDatabase(@Value("${database.url}")String url){
+        System.out.println("MyDatabase Initialized....:"+ url);
+    }
     public String readTask(String id){
         //mydb.retrieve(task)
-        return "here is a the task:" +id;
+        return "My DB 1 here is a the task:" +id;
     }
 }
