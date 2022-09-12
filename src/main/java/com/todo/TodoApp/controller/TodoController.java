@@ -1,11 +1,12 @@
 package com.todo.TodoApp.controller;
 
-import com.todo.TodoApp.data.MyDatabase;
+import com.sun.istack.NotNull;
 import com.todo.TodoApp.data.MyDb;
+import com.todo.TodoApp.model.TodoItem;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class TodoController {
@@ -21,10 +22,13 @@ public class TodoController {
         return myDatabase.readTask(id);
     }
 
+
     //POST /tasks
     //GET /tasks
     //GET /tasks/{id}
     //DELETE /tasks/{id}
     //PUT
     //PATCH
+
+
 }
