@@ -2,8 +2,9 @@ package com.todo.TodoApp.data;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class MyDatabase implements MyDb{
 
     public MyDatabase(@Value("${database.url}")String url){
