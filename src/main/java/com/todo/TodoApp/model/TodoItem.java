@@ -1,36 +1,36 @@
 package com.todo.TodoApp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Data
+@NoArgsConstructor
 @Entity
+@Table(name = "todo")
 public class TodoItem {
 
-    private long id;
-    private String title;
-    private boolean done;
-
-    public TodoItem(long id, String title, boolean done) {
-        this.id = id;
-        this.title = title;
-        this.done = done;
-    }
-
-    @Override
-    public String toString() {
-        return "TodoItem{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", done=" + done +
-                '}';
-    }
-
-    public TodoItem() {
-    }
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "username")
+    private String userName;
+
+//    @Size(min = 10, message = "Enter at least 10 Characters...")
+    private String description;
+
+    private Date targetDate;
+
+    public TodoItem(String user, String desc, Date targetDate, boolean isDone) {
+        super();
+        this.userName = user;
+        this.description = desc;
+        this.targetDate = targetDate;
+    }
+    
     public long getId() {
         return id;
     }
@@ -39,19 +39,27 @@ public class TodoItem {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public boolean isDone() {
-        return done;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDone(boolean done) {
-        this.done = done;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getTargetDate() {
+        return targetDate;
+    }
+
+    public void setTargetDate(Date targetDate) {
+        this.targetDate = targetDate;
     }
 }
